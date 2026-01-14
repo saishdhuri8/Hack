@@ -1,10 +1,10 @@
 import React from 'react'
-import NewPrompt from './NewPrompt'
+import Input from './Input'
 
 export default function Strategy() {
   return (
     <div>
-      <NewPrompt/>
+      <Input/>
     </div>
   )
 }

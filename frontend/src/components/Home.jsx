@@ -11,8 +11,11 @@ import {
   Zap,
   Menu,
   X,
+  UserRound, 
   Home as HomeIcon,
   Plus,
+  Palette,
+  Handshake, 
   Sparkles
 } from 'lucide-react';
 
@@ -23,15 +26,8 @@ const Home = () => {
 
   const navItems = [
     {
-      id: 'instant-prompt',
-      title: 'Instant Prompt',
-      icon: <Zap className="w-5 h-5" />,
-      path: '/',
-      description: 'Quick AI prompt generation'
-    },
-    {
       id: 'add-idea',
-      title: 'Add Idea',
+      title: 'Your Ideas',
       icon: <Lightbulb className="w-5 h-5" />,
       path: '/add-idea',
       description: 'Submit new campaign ideas'
@@ -51,16 +47,23 @@ const Home = () => {
       description: 'Strategy planning & analysis'
     },
     {
+      id: 'creative',
+      title: 'Creativity Area',
+      icon: <Palette className="w-5 h-5" />,
+      path: '/creative',
+      description: 'Quick AI prompt generation'
+    },
+    {
       id: 'influencers',
       title: 'Find Influencers',
-      icon: <UserPlus className="w-5 h-5" />,
+      icon: <Handshake  className="w-5 h-5" />,
       path: '/influencers',
       description: 'Manage influencer campaigns'
     },
     {
       id: 'profile',
       title: 'Profile',
-      icon: <UserPlus className="w-5 h-5" />,
+      icon: <UserRound  className="w-5 h-5" />,
       path: '/profile',
       description: 'Manage influencer campaigns'
     }
