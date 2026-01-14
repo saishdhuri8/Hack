@@ -1,10 +1,14 @@
-import React from 'react'
-import Input from './Input'
+
+
+import CampaignStrategyDashboard from './CampaignStrategyDashboard'
+
 
 export default function Strategy() {
+
   return (
     <div>
-      <Input/>
+      {/* <Input /> */}
+      <CampaignStrategyDashboard/>
     </div>
   )
 }
