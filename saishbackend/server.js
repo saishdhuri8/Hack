@@ -14,7 +14,7 @@ app.use(express.json());
 
 // Gemini Client (API KEY AUTH — IMPORTANT)
 const ai = new GoogleGenAI({
-  apiKey: "apna dolo garebo💦"
+  apiKey: process.env.GEMINI_API_KEY
 });
 
 // Health Check

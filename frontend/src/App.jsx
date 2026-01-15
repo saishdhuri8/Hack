@@ -16,7 +16,6 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />}>
-          <Route index element={<Landing />} />
           <Route path="add-idea" element={<Ideas/>} />
           <Route path="new-prompt" element={<NewPrompt/>} />
           <Route path="influencers" element={<Influencers />} />

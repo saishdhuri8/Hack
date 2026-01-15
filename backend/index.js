@@ -16,7 +16,6 @@ app.get("/api/generate-image", async (req, res) => {
 
   try {
     const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=${width}&height=${height}&seed=${Math.floor(Math.random() * 10000)}`;
-
     const response = await fetch(url);
 
     if (!response.ok) {

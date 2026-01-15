@@ -34,7 +34,7 @@ export default function Ideas() {
         targetAudience: 'Tech professionals aged 25-40, remote workers',
         goal: 'Leads',
         platforms: ['LinkedIn', 'Twitter/X'],
-        budgetRange: '$2,000 - $5,000',
+        budgetRange: 'INR.2,000 - INR.5,000',
         tone: 'Professional',
         date: '2024-01-15',
         status: 'Active'
@@ -46,7 +46,7 @@ export default function Ideas() {
         targetAudience: 'Women 18-35 interested in natural products',
         goal: 'Awareness',
         platforms: ['Instagram', 'TikTok', 'YouTube'],
-        budgetRange: '$5,000 - $10,000',
+        budgetRange: 'INR.5,000 - INR.10,000',
         tone: 'Youth/Gen-Z',
         date: '2024-01-10',
         status: 'Pending'
@@ -58,7 +58,7 @@ export default function Ideas() {
         targetAudience: 'Fitness enthusiasts, gym-goers 20-45',
         goal: 'Sales',
         platforms: ['Instagram', 'Facebook', 'Email'],
-        budgetRange: '$500 - $2,000',
+        budgetRange: 'INR.500 - INR2,000',
         tone: 'Friendly',
         date: '2024-01-05',
         status: 'Completed'
@@ -90,7 +90,7 @@ export default function Ideas() {
   const platformOptions = ['Instagram', 'LinkedIn', 'YouTube', 'Facebook', 'Twitter/X', 'TikTok', 'Pinterest', 'WhatsApp', 'Email'];
   const goalOptions = ['Leads', 'Awareness', 'Sales', 'Engagement', 'Traffic', 'Conversions'];
   const toneOptions = ['Professional', 'Fun/Casual', 'Premium/Luxury', 'Youth/Gen-Z', 'Friendly', 'Bold/Edgy', 'Inspirational'];
-  const budgetRanges = ['$100 - $500', '$500 - $2,000', '$2,000 - $5,000', '$5,000 - $10,000', '$10,000+', 'Custom'];
+  const budgetRanges = ['INR.100 - INR.500', 'INR.500 - INR.2,000', 'INR.2,000 - INR.5,000', 'INR.5,000 - INR.10,000', 'INR.10,000+', 'Custom'];
   const statusOptions = ['All', 'Active', 'Pending', 'Completed'];
 
   const handleChange = (e) => {
