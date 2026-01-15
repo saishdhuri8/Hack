@@ -1,12 +1,14 @@
 import express from "express";
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenerativeAI } from "@google/generative-ai"; // CORRECT IMPORT
+
+import dotenv from "dotenv";
+
+dotenv.config();
 
 
 const controller = express.Router();
 
-const ai = new GoogleGenAI({
-    apiKey:"AIzaSyCy1zNCkbw_qo1HUQOVl3F9dN4O4-WcLqg"
-});
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 controller.post("/ai-text", async (req, res) => {
   try {

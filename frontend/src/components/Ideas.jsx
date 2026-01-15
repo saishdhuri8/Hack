@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Check, 
   Sparkles, 
@@ -23,45 +23,53 @@ import {
 } from 'lucide-react';
 
 export default function Ideas() {
-  const [showAddForm, setShowAddForm] = useState(false);
-  const [ideas, setIdeas] = useState([
-    {
-      id: 1,
-      brandName: 'TechFlow',
-      productService: 'AI Productivity Tool',
-      targetAudience: 'Tech professionals aged 25-40, remote workers',
-      goal: 'Leads',
-      platforms: ['LinkedIn', 'Twitter/X'],
-      budgetRange: '$2,000 - $5,000',
-      tone: 'Professional',
-      date: '2024-01-15',
-      status: 'Active'
-    },
-    {
-      id: 2,
-      brandName: 'Bloom Beauty',
-      productService: 'Organic Skincare',
-      targetAudience: 'Women 18-35 interested in natural products',
-      goal: 'Awareness',
-      platforms: ['Instagram', 'TikTok', 'YouTube'],
-      budgetRange: '$5,000 - $10,000',
-      tone: 'Youth/Gen-Z',
-      date: '2024-01-10',
-      status: 'Pending'
-    },
-    {
-      id: 3,
-      brandName: 'FitFuel',
-      productService: 'Protein Supplements',
-      targetAudience: 'Fitness enthusiasts, gym-goers 20-45',
-      goal: 'Sales',
-      platforms: ['Instagram', 'Facebook', 'Email'],
-      budgetRange: '$500 - $2,000',
-      tone: 'Friendly',
-      date: '2024-01-05',
-      status: 'Completed'
-    }
-  ]);
+  // Load ideas from localStorage on initial render
+  const [ideas, setIdeas] = useState(() => {
+    const saved = localStorage.getItem('campaignIdeas');
+    return saved ? JSON.parse(saved) : [
+      {
+        id: 1,
+        brandName: 'TechFlow',
+        productService: 'AI Productivity Tool',
+        targetAudience: 'Tech professionals aged 25-40, remote workers',
+        goal: 'Leads',
+        platforms: ['LinkedIn', 'Twitter/X'],
+        budgetRange: '$2,000 - $5,000',
+        tone: 'Professional',
+        date: '2024-01-15',
+        status: 'Active'
+      },
+      {
+        id: 2,
+        brandName: 'Bloom Beauty',
+        productService: 'Organic Skincare',
+        targetAudience: 'Women 18-35 interested in natural products',
+        goal: 'Awareness',
+        platforms: ['Instagram', 'TikTok', 'YouTube'],
+        budgetRange: '$5,000 - $10,000',
+        tone: 'Youth/Gen-Z',
+        date: '2024-01-10',
+        status: 'Pending'
+      },
+      {
+        id: 3,
+        brandName: 'FitFuel',
+        productService: 'Protein Supplements',
+        targetAudience: 'Fitness enthusiasts, gym-goers 20-45',
+        goal: 'Sales',
+        platforms: ['Instagram', 'Facebook', 'Email'],
+        budgetRange: '$500 - $2,000',
+        tone: 'Friendly',
+        date: '2024-01-05',
+        status: 'Completed'
+      }
+    ];
+  });
+
+  // Save to localStorage whenever ideas change
+  useEffect(() => {
+    localStorage.setItem('campaignIdeas', JSON.stringify(ideas));
+  }, [ideas]);
 
   const [formData, setFormData] = useState({
     brandName: '',
@@ -77,6 +85,7 @@ export default function Ideas() {
   const [errors, setErrors] = useState({});
   const [searchTerm, setSearchTerm] = useState('');
   const [filterStatus, setFilterStatus] = useState('All');
+  const [showAddForm, setShowAddForm] = useState(false);
 
   const platformOptions = ['Instagram', 'LinkedIn', 'YouTube', 'Facebook', 'Twitter/X', 'TikTok', 'Pinterest', 'WhatsApp', 'Email'];
   const goalOptions = ['Leads', 'Awareness', 'Sales', 'Engagement', 'Traffic', 'Conversions'];
@@ -175,6 +184,14 @@ export default function Ideas() {
       case 'Completed': return 'bg-blue-900/30 text-blue-400 border-blue-800';
       default: return 'bg-gray-900/30 text-gray-400 border-gray-800';
     }
+  };
+  const formatIdeasForInput = () => {
+    return ideas.map(idea => ({
+      id: idea.id,
+      title: idea.brandName,
+      description: `${idea.productService} • ${idea.goal} • ${idea.budgetRange}`,
+      prompt: `Create a marketing campaign for ${idea.brandName}, which offers ${idea.productService}. Target audience: ${idea.targetAudience}. Primary goal: ${idea.goal}. Recommended platforms: ${idea.platforms.join(', ')}. Brand tone: ${idea.tone}. Budget range: ${idea.budgetRange}.`
+    }));
   };
 
   return (

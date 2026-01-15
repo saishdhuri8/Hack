@@ -33,13 +33,6 @@ const Home = () => {
       description: 'Submit new campaign ideas'
     },
     {
-      id: 'summary',
-      title: 'Summary',
-      icon: <ClipboardList className="w-5 h-5" />,
-      path: '/summary',
-      description: 'View campaign summaries'
-    },
-    {
       id: 'strategy',
       title: 'Strategy',
       icon: <Target className="w-5 h-5" />,
