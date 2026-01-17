@@ -9,6 +9,7 @@ import Ideas from "./components/Ideas";
 import Profile from "./components/ProfilePage";
 import CampaignStrategyDashboard from "./components/CampaignStrategyDashboard";
 import CaptionGenerator from "./components/CaptionGenerator";
+import InfluencerFinder from "./components/SearchInflu";
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
         <Route path="/" element={<Home />}>
           <Route path="add-idea" element={<Ideas/>} />
           <Route path="new-prompt" element={<NewPrompt/>} />
-          <Route path="influencers" element={<Influencers />} />
+          <Route path="influencers" element={<InfluencerFinder />} />
           <Route path="creative" element={<CreativePage />} />
           <Route path="strategy" element={<Strategy/>} />
           {/* <Route path="strategy" element={<CampaignStrategyDashboard/>} /> */}
